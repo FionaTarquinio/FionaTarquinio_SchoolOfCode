@@ -1,0 +1,5 @@
+input_word = input("Enter your word:\n")
+list_letters = list(input_word.lower())
+list_letters.reverse()
+input_word_reversed = "".join(list_letters)
+print(f"Is word a palindrome?\n{input_word.lower() == input_word_reversed}")
