@@ -1,4 +1,4 @@
-import vowels
+from vowels import counting_vowels
 
-vowels.counting_vowels(input("Please enter your name: "))
+counting_vowels(input("Please enter your name: "))
                              
