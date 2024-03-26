@@ -35,6 +35,8 @@ class SmartCoffeeMachine(KitchenAppliance):
 
 my_machine = SmartCoffeeMachine(1800, "Smeg", ["cafe latte", "cappuccino", "long black"])
 
+my_machine.report()
+
 my_machine.update_menu(input(f"Enter the coffee type you would like to add to the menu of your {my_machine.brand} {my_machine.model_number}:\n"))
 
 my_machine.make_coffee(input("Select coffee type:\n"))
