@@ -5,7 +5,7 @@ class KitchenAppliance:
         self.brand = brand
     
     def report(self):
-        print("This is " + str(self.model_number) + " from " + self.brand)
+        print("This is the " + str(self.model_number) + " from " + self.brand)
 
 class SmartCoffeeMachine(KitchenAppliance):
 
@@ -16,13 +16,13 @@ class SmartCoffeeMachine(KitchenAppliance):
     def update_menu(self, coffee_type):
         if coffee_type not in self.coffee_menu:
             self.coffee_menu.append(coffee_type)
-            print(f"'{coffee_type}' has been added to the menu of your smart machine.\n")
+            print(f"'{coffee_type}' has been added to the menu of your {self.brand} {self.model_number}.\n")
         else:
-            print(f"'{coffee_type}' is already on the menu of your smart machine.\n")
+            print(f"'{coffee_type}' is already on the menu of your {self.brand} {self.model_number}.\n")
         
     def make_coffee(self, coffee_type):
         while (coffee_type not in self.coffee_menu):
-            print(f"'{coffee_type}' is not on the menu of your smart machine.\nWould you like to add it to the menu? (y/n):\n")
+            print(f"'{coffee_type}' is not on the menu of your {self.brand} {self.model_number}.\nWould you like to add it to the menu? (y/n):\n")
             if input().lower() == "y":
                 my_machine.update_menu(coffee_type)
             
