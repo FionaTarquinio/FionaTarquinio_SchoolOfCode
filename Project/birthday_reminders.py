@@ -38,7 +38,7 @@ class Birthday(date):
         return number_of_days.days
 
     def age_next_birthday(self): # calculates age at next birthday
-        if self.birthday_in_current_year() > today:
+        if self.birthday_in_current_year() >= today:
             return today.year - self.year
         else:
             return today.year - self.year + 1
@@ -47,16 +47,27 @@ class Birthday(date):
 
 jesse = Birthday(1976, 9, 23)
 fiona = Birthday(1980, 5, 26)
-owen = Birthday(2009, 6, 29)
+owen = Birthday(2008, 6, 29)
 leon = Birthday(2010, 10, 27)
 henry = Birthday(2012, 11, 14)
+teddy = Birthday(2019, 4, 12)
+felix = Birthday(2020, 11, 12)
+cedric = Birthday(2017, 8, 12)
+genevieve = Birthday(1983, 8, 12)
+maria = Birthday(2014, 2, 27)
+
 
 birthday_dictionary = {
     "Jesse":jesse,
     "Fiona":fiona,
     "Owen":owen,
     "Leon":leon,
-    "Henry":henry
+    "Henry":henry,
+    "Teddy":teddy,
+    "Felix":felix,
+    "Cedric":cedric,
+    "Genevieve":genevieve,
+    "Maria":maria
 }
 
 # ***TO INCLUDE ADDITIONAL BIRTHDAYS: add names and DOBs to birthday objects and birthday dictionary above***
@@ -71,12 +82,16 @@ def find_next_birthday():
             person_with_nearest_birthday = key
             date_of_nearest_birthday = value.next_birthday()
             age_on_birthday = str(value.age_next_birthday())
+            print_age_on_birthday = "turns " + age_on_birthday
         elif a == days_to_nearest_birthday:
             person_with_nearest_birthday = person_with_nearest_birthday + " and " + key
-            age_on_birthday = age_on_birthday + " and " + str(value.age_next_birthday()) + " respectively"
-    print(f"\nNext birthday is {person_with_nearest_birthday} on {date_of_nearest_birthday}.")
-    print(f"This is in {days_to_nearest_birthday} days.")
-    print(f"{person_with_nearest_birthday} will turn {age_on_birthday}.")
+            age_on_birthday = age_on_birthday + " and " + str(value.age_next_birthday())
+            print_age_on_birthday = "turn " + age_on_birthday + " respectively"
+    if days_to_nearest_birthday == 0:
+        print(f"Today is the birthday of {person_with_nearest_birthday}! {person_with_nearest_birthday} {print_age_on_birthday} today!")
+    else:
+        print(f"\nNext birthday is {person_with_nearest_birthday} on {date_of_nearest_birthday}.")
+        print(f"{person_with_nearest_birthday} {print_age_on_birthday} in {days_to_nearest_birthday} days.")
 
 def find_last_birthday():
     days_from_last_birthday = 366
@@ -87,12 +102,16 @@ def find_last_birthday():
             person_with_last_birthday = key
             date_of_last_birthday = value.last_birthday()
             age_last_birthday = str(value.age_next_birthday() - 1)
+            print_age_last_birthday = age_last_birthday
         elif a == days_from_last_birthday:
             person_with_last_birthday = person_with_last_birthday + " and " + key
-            age_last_birthday = age_last_birthday + " and " + str(value.age_next_birthday() - 1) + " respectively"
+            age_last_birthday = age_last_birthday + " and " + str(value.age_next_birthday() - 1) 
+            print_age_last_birthday = age_last_birthday + " respectively"
     print(f"\nLast birthday was {person_with_last_birthday} on {date_of_last_birthday}.")
-    print(f"This was {days_from_last_birthday} days ago.")
-    print(f"{person_with_last_birthday} turned {age_last_birthday}.")
+    if days_from_last_birthday == 1:
+        print(f"{person_with_last_birthday} turned {print_age_last_birthday} {days_from_last_birthday} day ago.")
+    else:
+        print(f"{person_with_last_birthday} turned {print_age_last_birthday} {days_from_last_birthday} days ago.")
 
 find_next_birthday()
 find_last_birthday()
