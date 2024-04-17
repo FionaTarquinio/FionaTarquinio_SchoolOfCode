@@ -4,7 +4,7 @@ today = date.today()
 today_day_in_year = (int(today.strftime("%j"))) # today as a number in year counting from 1 Jan
 
 def print_today():
-    print(f"\nThe date today is {today}, which is day {today_day_in_year} of {today.year}.")
+    return(f"\nThe date today is {today}, which is day {today_day_in_year} of {today.year}")
 
 class Birthday(date):
     def __init__(self, year, month, day):
@@ -94,10 +94,10 @@ def find_next_birthday():
             age_on_birthday = age_on_birthday + " and " + str(value.age_next_birthday())
             print_age_on_birthday = "turn " + age_on_birthday + " respectively"
     if days_to_nearest_birthday == 0:
-        print(f"Today is the birthday of {person_with_nearest_birthday}! {person_with_nearest_birthday} {print_age_on_birthday} today!")
+        return(f"Today is the birthday of {person_with_nearest_birthday}! {person_with_nearest_birthday} {print_age_on_birthday} today!")
     else:
-        print(f"\nNext birthday is {person_with_nearest_birthday} on {date_of_nearest_birthday}.")
-        print(f"{person_with_nearest_birthday} {print_age_on_birthday} in {days_to_nearest_birthday} days.")
+        return(f"\nNext birthday is {person_with_nearest_birthday} on {date_of_nearest_birthday}"
+               f"\n{person_with_nearest_birthday} {print_age_on_birthday} in {days_to_nearest_birthday} days")
 
 def find_last_birthday():
     days_from_last_birthday = 366
@@ -113,12 +113,9 @@ def find_last_birthday():
             person_with_last_birthday = person_with_last_birthday + " and " + key
             age_last_birthday = age_last_birthday + " and " + str(value.age_next_birthday() - 1) 
             print_age_last_birthday = age_last_birthday + " respectively"
-    print(f"\nLast birthday was {person_with_last_birthday} on {date_of_last_birthday}.")
     if days_from_last_birthday == 1:
-        print(f"{person_with_last_birthday} turned {print_age_last_birthday} {days_from_last_birthday} day ago.")
+        return(f"\nLast birthday was {person_with_last_birthday} on {date_of_last_birthday}"
+               f"\n{person_with_last_birthday} turned {print_age_last_birthday} {days_from_last_birthday} day ago")
     else:
-        print(f"{person_with_last_birthday} turned {print_age_last_birthday} {days_from_last_birthday} days ago.")
-
-print_today()
-find_next_birthday()
-find_last_birthday()
+        return(f"\nLast birthday was {person_with_last_birthday} on {date_of_last_birthday}"
+               f"\n{person_with_last_birthday} turned {print_age_last_birthday} {days_from_last_birthday} days ago")
