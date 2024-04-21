@@ -4,6 +4,7 @@ import birthday_reminder
 class Root(tk.Tk):
     def __init__(self):
         super().__init__()
+        self.title("Family Birthdays")
         self.label_0 = tk.Label(self, text = birthday_reminder.print_today(), fg = "#1D24CA", bg = "#EFF396", font = "bold")
         self.label_0.pack()
         self.space_0 = tk.Label(self, text = "", bg = "#EFF396") # Fix this if better method
